@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+
+.user-page {
+    padding: 50px;
+}
+
+.App * {
+    font-family: Raleway;
+}
+
+.App .login {
+    width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.App .login input {
+    width: 70%;
+}
+
+.main-user {
+    width: 500px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.main-user .user-img {
+    width: calc(65% - 22px);
+    float: left;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.main-user .user-img img {
+    width: 100%;
+    display: inherit;
+}
+
+.main-user .user-data {
+    float: right;
+    width: calc(35% - 20px);
+    padding-left: 20px;
+}
+
+.main-user .user-data h5 {
+    font-size: 22px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.followers-block {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.single-follower {
+    padding: 20px;
+    padding-right: 30px;
+}
+
+.single-follower .follower-img {
+    width: 100px;
+    float: left;
+    margin-right: 15px;
+    padding: 7px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.single-follower .follower-img img {
+    width: 100%;
+    display: inherit;
+}
+
+.single-follower a {
+    color: rgb(79, 101, 226);
+    font-weight: bold;
+    font-size: 18px;
+}

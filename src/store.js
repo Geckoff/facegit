@@ -1,44 +1,21 @@
-import { createStore, applyMiddleware, compose } from "redux";
-import rootReducer from "./reducers";
-//import rootSaga from './sagas';
-//import createSagaMiddleware from 'redux-saga';
+import {createStore, applyMiddleware, compose} from 'redux';
+import rootReducer from './reducers';
+import rootSaga from './sagas';
+import createSagaMiddleware from 'redux-saga';
 
-//const sagaMiddleware = createSagaMiddleware();
+const sagaMiddleware = createSagaMiddleware();
 
-export default initialState =>
-    createStore(
-        rootReducer,
-        initialState,
-        window.__REDUX_DEVTOOLS_EXTENSION__ &&
-            window.__REDUX_DEVTOOLS_EXTENSION__()
-        // compose(
-        //   applyMiddleware(sagaMiddleware),
-        //   window.devToolsExtension ? window.__REDUX_DEVTOOLS_EXTENSION__() : f => f
-        // )
-    );
+export default initialState => {
+  const store = createStore(
+    rootReducer,
+    initialState,
+    compose(
+      applyMiddleware(sagaMiddleware),
+      window.devToolsExtension ? window.__REDUX_DEVTOOLS_EXTENSION__() : f => f
+    )
+  );
 
-//sagaMiddleware.run(rootSaga);
+  sagaMiddleware.run(rootSaga);
 
-//return store;
-
-// import {createStore, applyMiddleware, compose} from 'redux';
-// import rootReducer from './reducers';
-// import rootSaga from './sagas';
-// import createSagaMiddleware from 'redux-saga';
-
-// const sagaMiddleware = createSagaMiddleware();
-
-// export default initialState => {
-//   const store = createStore(
-//     rootReducer,
-//     initialState,
-//     compose(
-//       applyMiddleware(sagaMiddleware),
-//       window.devToolsExtension ? window.__REDUX_DEVTOOLS_EXTENSION__() : f => f
-//     )
-//   );
-
-//   sagaMiddleware.run(rootSaga);
-
-//   return store;
-// };
+  return store;
+};
