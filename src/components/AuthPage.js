@@ -6,6 +6,15 @@ import { Redirect } from "react-router-dom";
 
 class AuthPage extends Component {
 
+    componentDidMount() {
+        if (localStorage.data) {
+            const localData = JSON.parse(localStorage.data);
+            if (localData.hasOwnProperty('token')) {
+                this.props.authorize(localData.token);  
+            }
+        }
+    }
+
     handleKeyPress = event => {
         if (event.key === "Enter") {
             this.props.authorize(event.target.value);
@@ -17,7 +26,7 @@ class AuthPage extends Component {
         if (isAuthorized) {
             return (
                 <div className="login">
-                    <Redirect to="/user/dex157" />
+                    <Redirect to="/user/me" />
                 </div>
             );
         } else {

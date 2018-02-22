@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import { getIsAuthorized } from "../reducers";
 import { connect } from "react-redux";
 import UserPage from "./UserPage";
@@ -8,11 +8,11 @@ import PrivateRoute from "./PrivateRoute";
 import '../index.css';
 
 class AppRouter extends Component {
-    render() { 
-        const { isAuthorized } = this.props;      
+    render() {     
         return (
             <div className="App">
                 <Switch>
+                    <PrivateRoute exact path="/user/me" component={UserPage} /> 
                     <PrivateRoute path="/user/:name" component={UserPage} /> 
                     <Route path="/login" component={AuthPage} />
                     <Redirect to="/login" />

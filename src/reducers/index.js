@@ -2,15 +2,16 @@ import {combineReducers} from 'redux';
 import {handleActions} from 'redux-actions';
 import users from "./users";
 import followers from "./followers";
-import {isAuthorized} from "./auth";
+import auth from "./auth";
 
 export default combineReducers({
-    isAuthorized,
+    auth,
     users,
     followers
 });
 
-export const getIsAuthorized = state => state.isAuthorized;
+export const getIsAuthorized = state => state.auth.isAuthorized;
+export const getTokenOwner = state => state.auth.tokenOwner;
 export const getIsLoading = state => state.users.isFetching;
 export const getIsLoaded = state => state.users.isFetched;
 export const getError = state => state.users.error;

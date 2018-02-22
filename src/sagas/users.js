@@ -4,6 +4,7 @@ import {getUserInformation} from '../api';
 
 function* fetchUserSaga(action) {
   try {
+    console.log(action.payload);
     const user = yield call(getUserInformation, action.payload);
     yield put(fetchUserSuccess(user.data));
   } catch (error) {
