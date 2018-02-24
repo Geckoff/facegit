@@ -1,5 +1,5 @@
 import React from "react";
-import AppRouter from "../AppRouter";
+import { AppRouter } from "../AppRouter";
 import PrivateRoute from "../PrivateRoute";
 import { shallow } from "enzyme";
 import { Route, Switch, Redirect } from "react-router-dom";

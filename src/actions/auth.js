@@ -1,3 +1,8 @@
-import {createActions} from 'redux-actions';
+import { createActions } from "redux-actions";
 
-export const {authorize, setTokenOwner} = createActions('AUTHORIZE', 'SET_TOKEN_OWNER');
+export const { authorize, setTokenOwner, initAuth, logout } = createActions(
+    "AUTHORIZE",
+    "SET_TOKEN_OWNER",
+    "INIT_AUTH",
+    "LOGOUT"
+);

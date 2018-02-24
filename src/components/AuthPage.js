@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {authorize} from "../actions/auth";
+import {authorize, initAuth} from "../actions/auth";
 import { connect } from "react-redux";
 import {getIsAuthorized} from '../reducers';
 import { Redirect } from "react-router-dom";
@@ -7,12 +7,7 @@ import { Redirect } from "react-router-dom";
 class AuthPage extends Component {
 
     componentDidMount() {
-        if (localStorage.data) {
-            const localData = JSON.parse(localStorage.data);
-            if (localData.hasOwnProperty('token')) {
-                this.props.authorize(localData.token);  
-            }
-        }
+        this.props.initAuth();
     }
 
     handleKeyPress = event => {
@@ -50,7 +45,10 @@ const mapDispatchToProps = (dispatch) => {
     return {
         authorize: (data) => {
             dispatch(authorize(data));
-        }
+        },
+        initAuth: (data) => {
+            dispatch(initAuth(data));
+        },
     }
 }
 

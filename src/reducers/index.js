@@ -1,13 +1,14 @@
 import {combineReducers} from 'redux';
-import {handleActions} from 'redux-actions';
 import users from "./users";
 import followers from "./followers";
+import isNetworkErrorPresent from "./network";
 import auth from "./auth";
 
 export default combineReducers({
     auth,
     users,
-    followers
+    followers,
+    isNetworkErrorPresent
 });
 
 export const getIsAuthorized = state => state.auth.isAuthorized;
@@ -20,3 +21,4 @@ export const getIsLoadingFollowers = state => state.followers.isFetching;
 export const getIsLoadedFollowers = state => state.followers.isFetched;
 export const getErrorFollowers = state => state.followers.error;
 export const getFollowersData = state => state.followers.followersData;
+export const getIsNetworkErrorPresent = state => state.isNetworkErrorPresent;

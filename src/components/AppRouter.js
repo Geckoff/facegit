@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
-import { getIsAuthorized } from "../reducers";
+import { getIsNetworkErrorPresent } from "../reducers";
 import { connect } from "react-redux";
 import UserPage from "./UserPage";
 import AuthPage from "./AuthPage";
@@ -8,7 +8,7 @@ import PrivateRoute from "./PrivateRoute";
 import '../index.css';
 
 class AppRouter extends Component {
-    render() {     
+    render() {    
         return (
             <div className="App">
                 <Switch>
@@ -22,4 +22,12 @@ class AppRouter extends Component {
     } 
 }
 
-export default AppRouter;
+const mapStateToProps = state => ({
+    isNetworkErrorPresent: getIsNetworkErrorPresent(state)
+});
+
+export default connect(mapStateToProps)(AppRouter);
+export {AppRouter};
+
+
+//export default AppRouter;
