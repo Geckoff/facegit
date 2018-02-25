@@ -1,5 +1,5 @@
 import { handleActions } from "redux-actions";
-import { authorize, setTokenOwner, logout } from "../actions/auth";
+import { setTokenOwner, logout } from "../actions/auth";
 import { combineReducers } from "redux";
 
 const isAuthorized = handleActions({

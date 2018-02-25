@@ -3,7 +3,7 @@ import {Followers} from "../Followers";
 import { shallow } from "enzyme";
 
 
-const followersData = new Array(10),
+const followersData = [1, 2, 3],
     mock = jest.fn();
 let wrapper = shallow(<Followers fetchFollowersRequest={mock} followersData={followersData} />);
 
@@ -19,6 +19,6 @@ describe('Followers Tests', () => {
     //not working    
     it('Number of Follower components matches number of passed followers', () => { 
         const wrapper = shallow(<Followers isLoading={false} isLoaded={true} fetchFollowersRequest={mock} followersData={followersData} />);   
-        expect(wrapper.find('Follower')).toHaveLength(10);
+        expect(wrapper.find('Follower')).toHaveLength(3);
     });
 });

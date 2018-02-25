@@ -95,3 +95,15 @@
 .logout:hover {
     background: #ccc;
 }
+
+.network-error {
+    text-align: center;
+}
+
+.network-error p {
+    display: inline-block;
+    padding: 20px;
+    background: #ffd2d2;
+    color: #c11616;
+    border: 1px solid #c11616;
+}

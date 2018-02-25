@@ -1,6 +1,6 @@
 import React from "react";
 import {UserPage} from "../UserPage";
-import {Followers} from "../Followers";
+import FollowersWithConnect from "../Followers";
 import { shallow } from "enzyme";
 
 const obj = {params: {name: 'test'}};
@@ -18,11 +18,6 @@ describe('UserPage Tests', () => {
 
     it('Loader shows up if props.isLoading === true', () => {    
         expect(wrapper.find('Spinner')).toHaveLength(1);
-    });
-
-    it('User doesn\'t exist message shows up if isLoading === false && userData == null', () => {    
-        wrapper = shallow(<UserPage match={obj} fetchUserRequest={mock} isLoading={false} userData={null} isLoaded={true} />);
-        expect(wrapper.find('div').text()).toEqual('User does not exist!');
     });
 });
 
@@ -43,14 +38,15 @@ describe('Main Structure', () => {
 
     // not working
     it('Followers number exists', () => {     
-        //expect(wrapper.find('p').get(0)).toHaveLength(1);
-        //  
+        //  expect(wrapper.find('p').get(0).text()).toEqual('Followers: 13');
         expect(wrapper.find('.followers-number').text()).toEqual('Followers: 13');
     });
 
     // not working
     it('Followers component with Login property exists', () => {     
-        expect(wrapper.find(Followers).props().login).toEqual('test');
+        const followers = wrapper.find(FollowersWithConnect);
+        expect(followers).toHaveLength(1);
+        expect(followers.prop("login")).toEqual('test');
     });
 });
 

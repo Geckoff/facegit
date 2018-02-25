@@ -40,9 +40,7 @@ class UserPage extends Component {
         if (isLoading || !isLoaded) {
             return <Spinner size="64px" color="fuchsia" gap={5} />;
         } else if (!isLoading && userData == null) {
-            return (
-                <div>User does not exist!</div>
-            );
+            return null;
         } else if (error) {
             return (
                 <div>Something went wrong!</div>
