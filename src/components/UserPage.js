@@ -1,5 +1,6 @@
 import React, { Component }  from "react";
 import {fetchUserRequest} from "../actions/users";
+import {logout} from "../actions/auth";
 import { connect } from "react-redux";
 import {getIsLoading, getIsLoaded, getError, getUserData, getTokenOwner} from '../reducers';
 import Followers from './Followers'
@@ -29,6 +30,10 @@ class UserPage extends Component {
         }
     }
 
+    handleLogout = () => {
+        this.props.logout();
+    }
+
     render() {        
         const { userData } = this.props,
             { isLoading, isLoaded, error } = this.props;
@@ -46,6 +51,7 @@ class UserPage extends Component {
             
             return (
                 <div className="user-page">
+                    <button onClick={this.handleLogout} className="logout">Logout</button>
                     <div className="main-user">
                         <div className="user-img">
                             <img src={userData.avatar_url} alt={userData.login} />
@@ -75,7 +81,10 @@ const mapDispatchToProps = (dispatch) => {
     return {
         fetchUserRequest: (data) => {
             dispatch(fetchUserRequest(data));
-        }
+        },
+        logout: (data) => {
+            dispatch(logout(data));
+        },
     }
 }
 

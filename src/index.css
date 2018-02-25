@@ -81,3 +81,17 @@
     font-weight: bold;
     font-size: 18px;
 }
+
+.logout {
+    float: right;
+    padding: 8px 20px;
+    font-size: 12px;
+    border: 1px solid #ccc;
+    background: #fff;
+    cursor: pointer;
+    outline: none;
+}
+
+.logout:hover {
+    background: #ccc;
+}

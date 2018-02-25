@@ -26,8 +26,8 @@ const mapStateToProps = state => ({
     isNetworkErrorPresent: getIsNetworkErrorPresent(state)
 });
 
-export default connect(mapStateToProps)(AppRouter);
-export {AppRouter};
+//export default connect(mapStateToProps)(AppRouter);
+//export {AppRouter};
 
 
-//export default AppRouter;
+export default AppRouter;

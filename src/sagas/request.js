@@ -13,5 +13,5 @@ export default function*(fn, args) {
     if (error.response.status === 401) yield put(logout());
 
     throw error;
-  }
+  } 
 }
